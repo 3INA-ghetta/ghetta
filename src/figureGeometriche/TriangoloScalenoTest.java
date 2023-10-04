@@ -27,16 +27,18 @@ public class TriangoloScalenoTest {
         TriangoloScaleno triangoloScaleno = new TriangoloScaleno (cateto1,cateto2,cateto3);
         
         cateto1 = triangoloScaleno.c1;
+        cateto2 = triangoloScaleno.c2;
+        cateto3 = triangoloScaleno.c3;
         altezza = triangoloScaleno.calcolaAltezza();
         area = triangoloScaleno.calcolaArea();
         perimetro = triangoloScaleno.calcolaPerimetro();
         
-        System.out.println("primo cateto      : " + cateto1);
+        System.out.println("primo cateto        : " + cateto1);
         System.out.println("secondo cateto      : " + cateto2);
-        System.out.println("terzo cateto      : " + cateto3);
-        System.out.println("altezza    : " + altezza);
-        System.out.println("perimetro  : " + perimetro);  
-        System.out.println("area       : " + area);
+        System.out.println("terzo cateto        : " + cateto3);
+        System.out.println("altezza             : " + altezza);
+        System.out.println("perimetro           : " + perimetro);  
+        System.out.println("area                : " + area);
           
         
 
