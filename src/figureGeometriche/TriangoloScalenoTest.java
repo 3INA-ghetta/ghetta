@@ -39,9 +39,6 @@ public class TriangoloScalenoTest {
         System.out.println("altezza             : " + altezza);
         System.out.println("perimetro           : " + perimetro);  
         System.out.println("area                : " + area);
-          
-        
-
     }
     
 }

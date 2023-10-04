@@ -23,16 +23,16 @@ public class TriangoloScaleno {
       return semiperimetro; 
     }
     public double calcolaArea () {
-      double sp = calcolaSemiperimetro;
+      double sp = calcolaSemiperimetro();
       double area;
       area = (sp*(sp-c1)*(sp-c2)*(sp-c3));
       return area;
     }
     public double calcolaAltezza () {
-      double a = calcolaArea;
+      double a = calcolaArea();
       double altezza;
       altezza = (a*2)/c1;
-      return altezza
+      return altezza;
     }
     public double calcolaPerimetro () {
       double perimetro;
