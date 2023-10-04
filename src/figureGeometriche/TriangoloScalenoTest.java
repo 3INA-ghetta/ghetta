@@ -15,13 +15,13 @@ public class TriangoloScalenoTest {
         double cateto2;
         double cateto3;
         
-        System.out.println("inserire il valore del primo cateto: ");
+        System.out.println("inserire il valore del primo cateto   : ");
         cateto1 = in.nextDouble();
         
-        System.out.println("inserire il valore del secondo cateto: ");
+        System.out.println("inserire il valore del secondo cateto : ");
         cateto2 = in.nextDouble();
         
-        System.out.println("inserire il valore del terzo cateto: ");
+        System.out.println("inserire il valore del terzo cateto   : ");
         cateto3 = in.nextDouble();
         
         TriangoloScaleno triangoloScaleno = new TriangoloScaleno(cateto1,cateto2,cateto3);
@@ -40,5 +40,5 @@ public class TriangoloScalenoTest {
         System.out.println("altezza             : " + altezza);
         System.out.println("perimetro           : " + perimetro);  
     }
-    
+ 
 }

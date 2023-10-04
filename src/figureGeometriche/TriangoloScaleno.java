@@ -17,23 +17,27 @@ public class TriangoloScaleno {
       c2 = cateto2;
       c3 = cateto3;
     }
+    
     public double calcolaSemiperimetro() {
       double semiperimetro;
       semiperimetro = (c1+c2+c3)/2;
       return semiperimetro; 
     }
+    
     public double calcolaArea() {
       double sp = calcolaSemiperimetro();
       double area;
       area = Math.sqrt(sp*(sp-c1)*(sp-c2)*(sp-c3));
       return area;
     }
+    
     public double calcolaAltezza() {
       double a = calcolaArea();
       double altezza;
       altezza = (a*2)/c1;
       return altezza;
     }
+    
     public double calcolaPerimetro() {
       double perimetro;
       perimetro = c1+c2+c3;
