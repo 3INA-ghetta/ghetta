@@ -26,9 +26,9 @@ public class TriangoloRettangoloTest {
         System.out.println("Dati in input:");
         System.out.println(t.info());
         
-        System.out.println("dati di output:");
-        System.out.println("perimetro     : " + t.perimetro());
-        System.out.println("area          : " + t.area());
+        System.out.println("Dati di output:");
+        System.out.println("Perimetro     : " + t.perimetro());
+        System.out.println("Area          : " + t.area());
               
     }   
 }
