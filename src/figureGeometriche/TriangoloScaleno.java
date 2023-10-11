@@ -12,7 +12,7 @@ public class TriangoloScaleno {
     public double c2;
     public double c3;
     
-    public TriangoloScaleno (double cateto1, double cateto2, double cateto3) {
+    public TriangoloScaleno (double cateto1, double cateto2, double cateto3) { 
       c1 = cateto1;
       c2 = cateto2;
       c3 = cateto3;
