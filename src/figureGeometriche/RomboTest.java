@@ -23,8 +23,8 @@ public class RomboTest {
         System.out.println(r.info());
         
         System.out.println("Dati di output:");
-        System.out.println("Perimetro     : " + r.calcolaArea());
-        System.out.println("Area          : " + r.calcolaPerimetro());
+        System.out.println("Area             : " + r.calcolaArea());
+        System.out.println("Perimetro        : " + r.calcolaPerimetro());
 
     }
     

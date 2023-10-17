@@ -10,6 +10,14 @@ public class Cerchio {
         //this distingue parametro da attributo
     }
     
+    public float getRaggio() {
+        return raggio;
+    }
+    
+    public void setRaggio(float raggio) {
+        this.raggio = raggio;
+    }
+    
     public float calcolaArea () {
         float area;
         area=3.14f*(raggio*raggio);
@@ -20,5 +28,14 @@ public class Cerchio {
         float perimetro;
         perimetro=(raggio*2)*3.14f;
         return perimetro;                
-    }    
-}
+    } 
+    
+    public String info(){
+        String testo;
+        testo = "raggio: " + raggio;
+        return testo;
+    }
+        
+    }
+        
+    

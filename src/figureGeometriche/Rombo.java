@@ -24,7 +24,7 @@ public class Rombo {
         this.lato = lato; 
     }
     
-    public void setAltezza (double base){
+    public void setAltezza (float altezza){
         this.altezza = altezza; 
     }
     
@@ -40,7 +40,7 @@ public class Rombo {
         return perimetro;
     }
     
-     public String info(){
+    public String info(){
         String testo;
         testo = "altezza: " + altezza + "\n" +
                 "lato   : " + lato    + "\n";

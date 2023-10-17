@@ -9,8 +9,6 @@ public class RettangoloTest {
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
         
-        float area;
-        float perimetro;
         float base;
         float altezza;
         
@@ -20,17 +18,15 @@ public class RettangoloTest {
         System.out.println("inserire il valore dell altezza : ");
         altezza = in.nextFloat();
         
-        Rettangolo rettangolo = new Rettangolo (base,altezza);
+        Rettangolo r = new Rettangolo (base,altezza);
         
-        base      = rettangolo.b;
-        altezza   = rettangolo.h;
-        area      = rettangolo.calcolaArea();
-        perimetro = rettangolo.calcolaPerimetro();
+         System.out.println("Dati in input:");
+        System.out.println(r.info());
         
-        System.out.println("base       : " + base);
-        System.out.println("altezza    : " + altezza);
-        System.out.println("perimetro  : " + perimetro);  
-        System.out.println("area       : " + area);
+        System.out.println("Dati di output:");
+        System.out.println("Perimetro     : " + r.calcolaArea());
+        System.out.println("Area          : " + r.calcolaPerimetro());
     }
     
 }
+

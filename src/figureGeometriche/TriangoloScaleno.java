@@ -18,6 +18,18 @@ public class TriangoloScaleno {
       c3 = cateto3;
     }
     
+    public double getC1 (){
+      return c1;  
+    }
+    
+     public double getC2 (){
+      return c2;  
+    }
+     
+    public double getC3 (){
+      return c3;  
+    }
+    
     public double calcolaSemiperimetro() {
       double semiperimetro;
       semiperimetro = (c1+c2+c3)/2;
@@ -42,5 +54,13 @@ public class TriangoloScaleno {
       double perimetro;
       perimetro = c1+c2+c3;
       return perimetro;
+    }
+    
+    public String info() {
+      String testo;
+      testo = "primo cateto  : " + c1 + "\n" +
+              "secondo cateto: " + c2 + "\n" +
+              "terzo cateto  : " + c3 + "\n";
+      return testo;
     }
  }

@@ -7,10 +7,7 @@ public class TriangoloScalenoTest {
 
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
-        
-        double area;
-        double perimetro;
-        double altezza;
+
         double cateto1;
         double cateto2;
         double cateto3;
@@ -24,21 +21,18 @@ public class TriangoloScalenoTest {
         System.out.println("inserire il valore del terzo cateto   : ");
         cateto3 = in.nextDouble();
         
-        TriangoloScaleno triangoloScaleno = new TriangoloScaleno(cateto1,cateto2,cateto3);
+        TriangoloScaleno t = new TriangoloScaleno(cateto1,cateto2,cateto3);
         
-        cateto1   = triangoloScaleno.c1;
-        cateto2   = triangoloScaleno.c2;
-        cateto3   = triangoloScaleno.c3;
-        area      = triangoloScaleno.calcolaArea();
-        altezza   = triangoloScaleno.calcolaAltezza();
-        perimetro = triangoloScaleno.calcolaPerimetro();
+        System.out.println("Dati in input:");
+        System.out.println(t.info());
         
-        System.out.println("primo cateto        : " + cateto1);
-        System.out.println("secondo cateto      : " + cateto2);
-        System.out.println("terzo cateto        : " + cateto3);
-        System.out.println("area                : " + area);
-        System.out.println("altezza             : " + altezza);
-        System.out.println("perimetro           : " + perimetro);  
+        System.out.println("Dati di output:");
+        System.out.println("Area             : " + t.calcolaArea());
+        System.out.println("Altezza          : " + t.calcolaAltezza());
+        System.out.println("Perimetro        : " + t.calcolaPerimetro());
+        
+ 
     }
  
 }
+

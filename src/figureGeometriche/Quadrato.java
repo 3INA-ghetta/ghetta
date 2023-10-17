@@ -10,6 +10,14 @@ public class Quadrato {
                
     }
     
+    public float getL () {
+        return l;
+    }
+    
+    public void setL (float l) {
+        this.l = l;
+    }
+    
     public float calcolaArea () {
         float area;        
         area=l*l;
@@ -20,6 +28,12 @@ public class Quadrato {
         float perimetro;        
         perimetro=l+l+l+l;
         return perimetro;        
-    }    
+    }  
+    
+    public String info(){
+        String testo;
+        testo = "lato: " + l + "\n";
+        return testo;
+    }
 }
 
