@@ -32,10 +32,10 @@ public class Cerchio {
     
     public String info(){
         String testo;
-        testo = "raggio: " + raggio;
+        testo = "raggio: " + raggio + "\n";
         return testo;
     }
         
-    }
+}
         
     

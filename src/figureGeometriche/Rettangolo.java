@@ -41,9 +41,10 @@ public class Rettangolo {
     
       public String info(){
         String testo;
-        testo = "base      : " + b + "\n" +
+        testo = "base      : " + b    + "\n" +
                 "altezza   : " + h    + "\n";
         return testo;
     }
     
 }
+
