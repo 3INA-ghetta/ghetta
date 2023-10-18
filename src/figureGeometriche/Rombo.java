@@ -16,12 +16,12 @@ public class Rombo {
         return lato;
     }
     
-    public double getAltezza(){
-        return altezza;
-    }
-    
     public void setLato (float lato){
         this.lato = lato; 
+    }
+    
+    public double getAltezza(){
+        return altezza;
     }
     
     public void setAltezza (float altezza){
