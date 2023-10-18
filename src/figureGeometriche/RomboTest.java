@@ -9,7 +9,7 @@ public class RomboTest {
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
         
-        float l, a;
+        float a, l;
         
         System.out.println("Altezza:");
         a = in.nextFloat();
