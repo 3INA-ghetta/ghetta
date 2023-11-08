@@ -3,10 +3,6 @@ package teoria;
 
 import java.util.Scanner;
 
-/**
- *
- * @author claudio.ghetta
- */
 public class PersonaTest {
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
@@ -28,7 +24,7 @@ public class PersonaTest {
         System.out.println(p.info());
         
         System.out.println("Dati di output:");
-        System.out.println("registrazione    : " + p.registrazioneAvvenuta());
+        System.out.println("registrazione    : " + p.isRegistrazioneAvvenuta());
     }
     
 }

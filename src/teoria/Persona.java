@@ -76,16 +76,16 @@ public class Persona {
      * restituisce valore sulla registrazione
      * @return  
      */
-    public boolean registrazioneAvvenuta () {
-        boolean registrazione;
+    public boolean isRegistrazioneAvvenuta () {
+        boolean isRegistrazione;
         
         if (email.equals("")) {
-            registrazione = false;
+            isRegistrazione = false;
         } else {
-            registrazione = true;
+            isRegistrazione = true;
         }
         
-        return registrazione;
+        return isRegistrazione;
     }
     /**
      * restituisce valore testo
