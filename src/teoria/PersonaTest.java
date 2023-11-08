@@ -22,9 +22,6 @@ public class PersonaTest {
         System.out.println("email:");
         e = in.nextLine();
         
-        
-        
-        
         Persona p = new Persona (n,c,e);
         
         System.out.println("Dati in input:");
