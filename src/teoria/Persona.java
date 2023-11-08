@@ -35,6 +35,10 @@ public class Persona {
     public String getNome () {
         return nome;
     }
+    /**
+     * imposta/modifica valore nome
+     * @param nome nome 
+     */
     public void setNome (String nome) {
       this.nome=nome;
     }
@@ -46,6 +50,10 @@ public class Persona {
     public String getCognome () {
         return cognome;
     }
+    /**
+     * imposta/modifica valore cognome
+     * @param cognome cognome
+     */
     public void setCognome (String cognome) {
       this.cognome=cognome;
     /**
@@ -56,13 +64,17 @@ public class Persona {
     public String getEmail () {
         return email;
     }
+    /**
+     * imposta/modifica valore email
+     * @param email email 
+     */
     public void setEmail (String email) {
       this.email=email;
     }
     
     /**
-     * 
-     * @return registrazione 
+     * restituisce valore sulla registrazione
+     * @return  
      */
     public boolean registrazioneAvvenuta () {
         boolean registrazione;
@@ -75,7 +87,10 @@ public class Persona {
         
         return registrazione;
     }
-    
+    /**
+     * restituisce valore testo
+     * @return 
+     */
     public String info () {
         String testo;
         testo = "nome          : " + nome    + "\n" +
