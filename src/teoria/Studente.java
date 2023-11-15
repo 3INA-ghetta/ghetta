@@ -124,8 +124,5 @@ public class Studente {
                 "esito         : " + esito  + "\n";
         return testo;        
     }    
-    
-    
-    
-    
+       
 }
