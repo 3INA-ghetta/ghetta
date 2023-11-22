@@ -68,7 +68,7 @@ public class Numero1 {
      * restituisce testo
      * @return 
      */
-    public String maggioreMinoreUguale () {
+    public String maggioreMinoreUgualeZero () {
         String testo;
         
         if (n1 > 0) {
