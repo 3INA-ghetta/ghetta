@@ -1,6 +1,8 @@
 //dati i lati di un triangolo stabilire il tipo perimetro e area
 package figureGeometriche;
 
+import java.util.Scanner;
+
 /**
  *Classe per stabilire il tipo, perimetro e area di un triangolo
  * @author claudio.ghetta
@@ -82,7 +84,7 @@ public class Triangolo {
     * Restituisce il valore del semi-perimetro
     * @return 
     */
-    private float calcolaSemiperimetro() {
+    public float calcolaSemiperimetro() {
       float semiperimetro;
       
       semiperimetro = perimetro()/2;
@@ -116,5 +118,17 @@ public class Triangolo {
         return tipo;
     }
     
-    
+    public String tipo1() {
+        String tipo ="";
+        
+        if ((l1 == l2 && l2==l3)){
+            tipo = "equilatero";
+        }else if (l1 != l2 && l1 != l3 && l2 != l3){
+            tipo = "scaleno";
+        }else {
+            tipo = "isoscele";
+        }
+        return tipo;
+    }
+  
 }
