@@ -9,14 +9,14 @@ package numero;
  * @author Ghetta.Claudio 3INA 2023
  * @version 1.0
  */
-public class Numero1 {
+public class Numero1Es {
     
     private int n1;
     
     /**
      * classe senza parametri
      */
-    public Numero1 () {
+    public Numero1Es () {
         
     }
     
@@ -24,7 +24,7 @@ public class Numero1 {
      * classe con parametri
      * @param n1 
      */
-    public Numero1 (int n1) {
+    public Numero1Es (int n1) {
         this.n1 = n1;        
     }
     
@@ -79,6 +79,35 @@ public class Numero1 {
             testo="negativo";
            
     return testo;    
+    }
+    
+    public String maggioreMinoreUgualeZero1 () {
+        String testo;
+        
+        if (n1 > 0) {
+            testo = "positivo";            
+        } else if (n1 == 0) {
+            testo = "zero";
+        } else {
+            testo = "negativo";
+        }
+        return testo;       
+    }
+    
+    public String maggioreMinoreUgualeZero2 () {
+        String testo = "";
+        
+        if (n1 > 0) {
+            testo = "positivo";
+        }
+        if (n1 == 0) {
+            testo = "zero";
+        }
+        if (n1 < 0) {
+            testo = "negativo";
+        }
+        return testo;
+        
     }
     
     /**
