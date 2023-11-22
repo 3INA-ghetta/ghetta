@@ -1,7 +1,6 @@
 //dati i lati di un triangolo stabilire il tipo perimetro e area
+//è possibile costruitre un triangolo solo se ciascun lato è minore della somma degli altri due
 package figureGeometriche;
-
-import java.util.Scanner;
 
 /**
  *Classe per stabilire il tipo, perimetro e area di un triangolo
@@ -37,23 +36,38 @@ public class Triangolo {
     public float getL1() {
         return l1;
     }
-
+    /**
+     * imposta/modifica l1
+     * @param l1 
+     */
     public void setL1(float l1) {
         this.l1 = l1;
     }
-
+    /**
+     * restituisce l2
+     * @return l2
+     */
     public float getL2() {
         return l2;
     }
-
+    /**
+     * imposta/modifica l2
+     * @param l2 
+     */
     public void setL2(float l2) {
         this.l2 = l2;
     }
-
+    /**
+     * restituisce l3
+     * @return l3
+     */
     public float getL3() {
         return l3;
     }
-
+    /**
+     * imposta/modifica l3
+     * @param l3 
+     */
     public void setL3(float l3) {
         this.l3 = l3;
     }
@@ -104,7 +118,10 @@ public class Triangolo {
     
       return area;
     }
-    
+    /**
+     * restituisce il valore tipo
+     * @return 
+     */
     public String tipo() {
         String tipo ="";
         
@@ -117,7 +134,10 @@ public class Triangolo {
         
         return tipo;
     }
-    
+    /**
+     * restituisce il valore tipo
+     * @return 
+     */
     public String tipo1() {
         String tipo ="";
         
@@ -129,6 +149,25 @@ public class Triangolo {
             tipo = "isoscele";
         }
         return tipo;
+    }
+    /**
+     * restituisce il valore v
+     * @return 
+     */
+    public boolean isTriangolo() {
+        boolean v = true;
+        if (l1 == l2 + l3) {
+            v = true;
+        } else if (l2 == l1 + l3) {
+            v = true;
+        } else if (l3 == l1 + l2) {
+            v = true;
+        } else {
+            v = false;
+        }
+        
+        return v;
+        
     }
   
 }
