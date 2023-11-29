@@ -65,7 +65,7 @@ public class Equazione1 {
         if (a > 0) {
             risultato = "risultato : " + b / a;
         }
-        else if (a == 0) {
+        else if (a == 0 && b == 0) {
             risultato = "equazione è indeterminata";
         }
         else {
