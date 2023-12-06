@@ -24,5 +24,11 @@ public class TriangoloTest {
         System.out.println(t.tipo());
         System.out.println(t.tipo1());
         System.out.println(t.isTriangolo());
-        }
+        
+        String testo;   
+        testo = t.isTriangolo() == true? "si" : "no";
+        
+        System.out.println(testo);
+     
     }
+}
