@@ -9,27 +9,40 @@ package figureGeometriche;
  * @version 1.0
  */
 public class Triangolo {
-    final private float NF_TE = 0.289f;
+    final private float NF_TE;
     private float l1;
     private float l2;
     private float l3;
+    private String unitàMisura;
     
     /**
      * classe senza parametri
      */
     public Triangolo () {
-        
+        NF_TE = 0.289f;
+        unitàMisura = "";
     }
     /**
      * classe con parametri
+     * @param NF_TE
      * @param l1
      * @param l2
      * @param l3 
+     * @param unitàMisura
      */
-    public Triangolo(float l1, float l2, float l3) {
+    public Triangolo(float NF_TE, float l1, float l2, float l3, String unitàMisura) {
+        this.NF_TE = NF_TE;
         this.l1 = l1;
         this.l2 = l2;
         this.l3 = l3;
+        this.unitàMisura = unitàMisura;
+    }
+    /**
+     * restituisce NF_TE
+     * @return NF_TE
+     */
+    public float getNF_TE(){
+        return NF_TE;
     }
     /**
      * restituisce l1
@@ -74,6 +87,20 @@ public class Triangolo {
         this.l3 = l3;
     }
     /**
+     * restituisce unitàMisura
+     * @return unitàMisura
+     */
+    public String getUnitàMisura(){
+        return unitàMisura;
+    }
+    /**
+     * imposta/modifica unitàMisura
+     * @param unitàMisura 
+     */
+    public void setUnitàMisura(String unitàMisura){
+        this.unitàMisura = unitàMisura;
+    }
+    /**
      * restituisce testo
      * @return 
      */
@@ -91,7 +118,7 @@ public class Triangolo {
     public float perimetro () {
         float p=0;
         if (isTriangolo()==true)
-        p = l1+l2+l3;
+         p = l1+l2+l3;
         
         return p;    
     }
@@ -115,7 +142,7 @@ public class Triangolo {
     public float area() {
       float area=0;
       if (isTriangolo()==true)
-      area = (float) Math.sqrt(calcolaSemiperimetro()*(calcolaSemiperimetro()-l1)
+       area = (float) Math.sqrt(calcolaSemiperimetro()*(calcolaSemiperimetro()-l1)
               *(calcolaSemiperimetro()-l2*(calcolaSemiperimetro()-l3)));
     
       return area;
