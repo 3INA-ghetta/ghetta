@@ -24,6 +24,9 @@ public class TriangoloTest {
         System.out.println(t.tipo());
         System.out.println(t.tipo1());
         System.out.println(t.isTriangolo());
+        System.out.println(t.altezza());
+        System.out.println(t.apotema());
+        
         
         String testo;   
         testo = t.isTriangolo() == true? "si" : "no";
