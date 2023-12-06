@@ -155,15 +155,9 @@ public class Triangolo {
      * @return 
      */
     public boolean isTriangolo() {
-        boolean v = true;
-        if (l1 == l2 + l3) {
+        boolean v = false;
+        if ((l1 > l2 + l3) && (l2 > l1 + l3) && (l3 > l1 + l2)) {
             v = true;
-        } else if (l2 == l1 + l3) {
-            v = true;
-        } else if (l3 == l1 + l2) {
-            v = true;
-        } else {
-            v = false;
         }
         
         return v;
