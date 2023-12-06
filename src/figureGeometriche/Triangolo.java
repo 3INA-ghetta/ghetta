@@ -2,7 +2,7 @@
 //è possibile costruitre un triangolo solo se ciascun lato è minore della somma degli altri due
 package figureGeometriche;
 
-import Math;
+
 /**
  *Classe per stabilire il tipo, perimetro e area di un triangolo
  * @author claudio.ghetta
