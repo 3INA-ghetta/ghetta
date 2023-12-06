@@ -2,12 +2,14 @@
 //è possibile costruitre un triangolo solo se ciascun lato è minore della somma degli altri due
 package figureGeometriche;
 
+import Math;
 /**
  *Classe per stabilire il tipo, perimetro e area di un triangolo
  * @author claudio.ghetta
  * @version 1.0
  */
 public class Triangolo {
+    final private float NF_TE = 0.289f;
     private float l1;
     private float l2;
     private float l3;
@@ -163,5 +165,23 @@ public class Triangolo {
         return v;
         
     }
-  
+    
+    public float apotema() {
+        float a=0;
+        //add condizione
+        if (tipo().equals("equilatero"))
+         a = l1 * NF_TE;        
+        return a;    
+    }
+    // altezza lato* (math.sqrt(3) /2)
+    
+    public float altezza() {
+        float h=0;
+        if (tipo().equals("equilatero"))
+         h = (float) (l1 * Math.sqrt(3)/2);
+        else
+         h = 0;
+        return h;    
+    }
+ 
 }
