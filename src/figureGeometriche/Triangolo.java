@@ -89,8 +89,8 @@ public class Triangolo {
      * @return 
      */
     public float perimetro () {
-        float p;
-        
+        float p=0;
+        if (isTriangolo()==true)
         p = l1+l2+l3;
         
         return p;    
@@ -113,8 +113,8 @@ public class Triangolo {
     * @return 
     */
     public float area() {
-      float area;
-      
+      float area=0;
+      if (isTriangolo()==true)
       area = (float) Math.sqrt(calcolaSemiperimetro()*(calcolaSemiperimetro()-l1)
               *(calcolaSemiperimetro()-l2*(calcolaSemiperimetro()-l3)));
     
