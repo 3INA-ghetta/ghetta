@@ -58,7 +58,8 @@ public class Studente1 {
         
         testo = "nome: " + nome + "\n"
               + "cognome: " + cognome + "\n"
-              + "matricola: " + matricola;
+              + "matricola: " + matricola + "\n"
+              + "prossima matricola: " + ultimaMatricola++;
 
         return testo;
     }

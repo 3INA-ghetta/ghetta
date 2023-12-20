@@ -29,6 +29,14 @@ public class Studente1Test {
         
         System.out.println(studente1.stampaDati());
         System.out.println(studente2.stampaDati());
+        
+        System.out.println("ridefinire il nome e cognome del primo studente: ");
+        studente1.setNome(in.next());
+        studente1.setCognome(in.next());
+        
+        System.out.println(studente1.stampaDati());
+        
+       
 
     }
     
