@@ -11,7 +11,9 @@ public class BigliettoFerroviarioTest {
         float costoBiglietto=5;
         String situazione;
         
-        System.out.println("inserire la lettera d se disoccupati, la lettera s se studenti o p se pensionato, altrimenti inserire una qualunque lettera");
+        System.out.println("inserire la lettera d se disoccupati, la lettera s "
+                + "se studenti o p se pensionato,"
+                + " altrimenti inserire una qualunque lettera");
         situazione = in.nextLine();
         
         BigliettoFerroviario b = new BigliettoFerroviario (costoBiglietto, situazione);

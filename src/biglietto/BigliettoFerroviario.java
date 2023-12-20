@@ -62,15 +62,18 @@ public class BigliettoFerroviario {
     public float importo() {
         float importo;
         switch (situazione) {
-            case "p":
+            case "p": 
+            case "P":
                 importo = costoBiglietto - (costoBiglietto*10/100);
             break;
             
             case "s":
+            case "S":
                 importo = costoBiglietto - (costoBiglietto*15/100);
             break;
             
             case "d":
+            case "D":
                 importo = costoBiglietto - (costoBiglietto*25/100);
             break;
             
