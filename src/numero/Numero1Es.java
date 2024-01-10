@@ -64,7 +64,7 @@ public class Numero1Es {
     }
     
     /**
-     * restituisce testo
+     * restituisce testo (annidato)
      * @return 
      */
     public String maggioreMinoreUgualeZero () {
