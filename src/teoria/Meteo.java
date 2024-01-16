@@ -91,7 +91,7 @@ public class Meteo {
     }
     
     public String consiglio2(){
-        String testo = "";
+        String testo;
         
         if (temperatura < 0){
             testo = "attenti al ghiaccio!";
@@ -122,26 +122,75 @@ public class Meteo {
     }
      
     public String consiglio3(){
-        String testo = "";
+        String testo;
         
-        if (temperatura < 0)
-            if(temperatura == 0)
-                if (temperatura > 0 && temperatura <= 5)                     
-                    if (temperatura > 5 && temperatura <= 10)
-                        if (temperatura > 10 && temperatura <= 15)
-                            if (temperatura > 15 && temperatura <= 20)
-                                if (temperatura > 20 && temperatura <= 25)
-                                    if (temperatura > 25)
+        
+        if (temperatura < 0){
+            testo = "attenti al ghiaccio!";
+            if(temperatura == 0){
+                testo = "si va a sciare!";
+                if (temperatura > 0 && temperatura <= 5){
+                    testo = "ci vuole il cappellino!";
+                    if (temperatura > 5 && temperatura <= 10){
+                        testo = "basta il piumino!";
+                        if (temperatura > 10 && temperatura <= 15){
+                            testo = "solo il maglioncino!";
+                            if (temperatura > 15 && temperatura <= 20){
+                                testo = "magari!";
+                                if (temperatura > 20 && temperatura <= 25){
+                                    testo = "tutti al mare!";
                                     
-        return testo;
+                                }else
+                                    testo = "condizionatore a manetta!";
+                            }else
+                                testo = null;
+                        }else
+                            testo = null;
+                    }else
+                        testo = null;
+                }else
+                    testo = null;
+            }else
+                testo = null;
+        }else
+            testo = null;
+    return testo;
+        
     }
      
     public String consiglio4(){
-        String testo = "";
-        
-        
-        
-        return testo;
+        String testo;
+        if (temperatura > 20 && temperatura <= 25){
+            testo = "tutti al mare!";
+            if(temperatura > 15 && temperatura <= 20){
+                testo = "magari!";
+                if (temperatura > 10 && temperatura <= 15){
+                    testo = "solo il maglioncino!";
+                    if (temperatura > 5 && temperatura <= 10){
+                        testo = "basta il piumino!";
+                        if (temperatura > 0 && temperatura <= 5){
+                            testo = "ci vuole il cappellino!";
+                            if (temperatura == 0){
+                                testo = "si va a sciare!";
+                                if (temperatura < 0){
+                                    testo = "attenti al ghiaccio!";
+                                    
+                                }else
+                                    testo = "condizionatore a manetta!";
+                            }else
+                                testo = null;
+                        }else
+                            testo = null;
+                    }else
+                        testo = null;
+                }else
+                    testo = null;
+            }else
+                testo = null;
+        }else
+            testo = null;
+    return testo;
+    
     }
     
     
