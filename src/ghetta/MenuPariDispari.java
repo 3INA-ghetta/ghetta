@@ -10,7 +10,9 @@ package ghetta;
  */
 public class MenuPariDispari {
     private int numero;
-    /**
+    static int cont = 0;
+    static int num = 0;
+    /** 
      * costruttore senza parametri
      */
     public MenuPariDispari() {
@@ -50,15 +52,16 @@ public class MenuPariDispari {
         
     }
     /**
-     * restituisce una stringa di valore
+     * restituisce valore
      * @return 
      */
-    public int dispari(){
+    public String dispari(){
         int valore=0;
+        String testo="";
         
         for (int i = 0; i <= (numero+1); i++){
             if (valore%2 != 0 ){
-                System.out.println(valore);
+                testo = valore + "\n";
                 valore++; 
             }else{
                 valore++;
@@ -66,20 +69,21 @@ public class MenuPariDispari {
                 
         }
         
-        return valore;
+        return testo;
         
     }
     /**
-     * restituisce una stringa di valore
+     * restituisce valore
      * @return 
      */
-    public int pari(){
+    public String pari(){
         int valore=0;
         int contatore =0;
+        String testo="";
         
         while (contatore <= numero){
             if (valore%2 == 0 ){
-                System.out.println(valore);
+                testo = valore + "\n";
                 valore = valore + 2;
             }else{
                 valore++;
@@ -87,7 +91,49 @@ public class MenuPariDispari {
                 
         }
         
-        return valore;
+        return testo;
+    }
+    
+    /**
+     * restituisce valore
+     * @return 
+     */
+    public static String dispari1(){
+        int valore=0;
+        String testo="";
+        
+        for (int i = 0; i <= (num+1); i++){
+            if (valore%2 != 0 ){
+                testo = valore + "\n";
+                valore++; 
+            }else{
+                valore++;
+            }
+                
+        }
+        
+        return testo;
+        
+    }
+    /**
+     * restituisce valore
+     * @return 
+     */
+    public static String pari1(){
+        int valore=0;
+        String testo="";
+        
+        while (cont <= num){
+            if (valore%2 == 0 ){
+                testo = valore + "\n";
+                valore = valore + 2;
+            }else{
+                valore++;
+            }
+                
+        }
+        
+        return testo;
     }
     
 
