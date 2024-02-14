@@ -25,7 +25,7 @@ public class Quadrati {
         double ris;
         String testo= "numeri" + "\t" + "quadrato" + "\n";
         int cont = 0;
-        if (num <= 20 && num > 0){
+        if (num > 0 && num <= 20){
             while (cont < num){
                 
                 ris = cont*cont;
