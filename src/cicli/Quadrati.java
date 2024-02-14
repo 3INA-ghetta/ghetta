@@ -21,21 +21,20 @@ public class Quadrati {
         this.num = num;
     }
     
-    public double quadrato(){
+    public String quadrato(){
         double ris=0;
-        
+        String testo= "numeri" + "\t" + "quadrato" + "\n";
+        int cont= 0;
         if (num <= 20 && num > 0){
-            for (double i = 0; i < num; i++ ){
-            ris = Math.sqrt(i);
-            System.out.println(ris);
+            while (cont < num){
+                
+                ris = cont*cont;
+                System.out.println(ris);
+                testo += cont + "\t" + ris + "\n";
+                cont++;
             }
         }
-        
-        return ris;
+        return testo;    
     }
-    
-    
-    
-    
-    
+       
 }
