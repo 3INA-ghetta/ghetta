@@ -22,9 +22,9 @@ public class Quadrati {
     }
     
     public String quadrato(){
-        double ris=0;
+        double ris;
         String testo= "numeri" + "\t" + "quadrato" + "\n";
-        int cont= 0;
+        int cont = 0;
         if (num <= 20 && num > 0){
             while (cont < num){
                 
