@@ -11,6 +11,7 @@ public class DataTest {
         
         int g,m,a;
         
+        
         System.out.println("g");
         g = in.nextInt();
         System.out.println("m");
@@ -21,7 +22,7 @@ public class DataTest {
         Data d = new Data (g,m,a);
         
         System.out.println(d.info());
-        System.out.println(d.nGiorni());
+        System.out.println(Data.nGiorni());
                 
     }
     

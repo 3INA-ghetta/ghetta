@@ -98,12 +98,105 @@ public class Data {
     
     public static int nGiorni(){
         int diff=0;
-        int g1;
-        int g2;
-        int m1;
-        int m2;
-        int a1;
-        int a2;
+        int g1 = 1;
+        int g2 = 2;
+        int m1 = 2020;
+        int m2 = 2;
+        int a1 = 4;
+        int a2 = 2021;
+        int diffm;
+        int diffa;
+        boolean isBisestile1;
+        
+        diffm = Math.abs(m2-m1);
+        diffa = a2 - a1;
+        if (diffa == 0){
+            diffa = 1;
+        }
+        
+        if (a1 % 400 == 0 || (a1 % 4==0 && !(a1%100==0))){
+            isBisestile1 = true;
+        }else{
+            isBisestile1 = false;
+        }
+        
+        switch(diffm){
+            case 1:
+                g1=31-g1;
+                diff = g2 + g1 + 243*diffa;
+                
+            break;
+            case 2:
+                if (isBisestile1 == true){                   
+                    g1=29-g1;
+                    diff = g2 + g1 + diffm*30*diffa;
+                }else{
+                    g1=29-g1;
+                    diff = g2 + g1 + diffm*30*diffa;
+                }
+                                          
+            break;
+            case 3:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+                
+                    
+                    
+            break;
+            case 4:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+                    
+                
+            break;
+            case 5:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+
+                        
+            break;
+            case 6:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+                    
+                    
+            break;
+            case 7:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+                    
+                
+            break;
+            case 8:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+
+                        
+            break;
+            case 9:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+                    
+                    
+            break;
+            case 10:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+                    
+                
+            break;
+            case 11:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+
+                        
+            break;
+            case 12:
+                g1=31-g1;
+                diff = g2 + g1 + diffm*30*diffa;
+                
+        }
+        
         
         
         
