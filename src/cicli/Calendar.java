@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package cicli;
 
-import java.util.*;
+package cicli;
 
 /**
  *
@@ -15,6 +9,19 @@ public class Calendar {
     static String ZellerCongruence(int day, int month, int year)
     {
         String ris = "";
+        /*
+        if (month < 3 && month > 0){
+            month = month + 12;
+            year--;
+        }
+        */
+        
+        if (month < 1 || month > 2){
+            month = month + 12;
+            year--;
+        }
+        
+        /*
         if (month == 1)
         {
             month = 13;
@@ -25,6 +32,7 @@ public class Calendar {
             month = 14;
             year--;
         }
+        */
         int q =day;
         int m = month;
         int k = year % 100;
