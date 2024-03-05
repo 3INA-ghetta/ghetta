@@ -6,30 +6,33 @@ public class SuperEnalottoTestNew {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n, c = 0;
-        boolean condizione = true;
+        int n;
+        SuperEnalottoNew s1 = new SuperEnalottoNew();
 
-        SuperEnalottoNew s2 = new SuperEnalottoNew();
-
-        if (condizione == true){
-            for (int i = 0; i < 6; i++) {
+        int array1[] = new int[6];
+        int[] risposta = s1.superEnalottoArray();
+        for (int i = 0; i < array1.length; i++) {
             System.out.print("inserisci un numero: ");
             n = in.nextInt();
-            for (int a = 0; a < 6; a++){
-                if (n != s2.superEnalottoArray()[a] && a < 6){
-                System.out.println("hai sbagliato");
-                condizione = false;
-                }                    
-            }
-            c++;
-            }
-            if (c < 6){
-                condizione = false;
-            }
-
-           
+            array1[i] = n;
+        }
+        System.out.println("\n");
+        System.out.print("la tua risposta: ");
+        for (int i = 0; i < array1.length; i++) {
+            System.out.println(array1[i] + " ");
         }
 
-        
+        System.out.println("la risposta corretta: ");
+        for (int i = 0; i < array1.length; i++) {
+            System.out.println(risposta[i] + " ");
+        }
+        for (int i = 0; i < array1.length; i++) {
+            for (int b = 0; b < array1.length; b++) {
+                if (array1[i] == risposta[b]) {
+                    System.out.println("il numero " + (i + 1) + " è corretto");
+                }
+            }
+
+        }
     }
 }
