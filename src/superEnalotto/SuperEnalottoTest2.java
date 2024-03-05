@@ -6,6 +6,7 @@ public class SuperEnalottoTest2 {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int n;
+                
 		SuperEnalotto s = new SuperEnalotto();
 
 		String testo = "";
