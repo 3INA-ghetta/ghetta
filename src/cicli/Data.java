@@ -1,12 +1,19 @@
 
 package cicli;
 
+import java.time.LocalDate;
+
 public class Data {
     private int g;
     private int m;
     private int a;
 
     public Data() {
+        LocalDate d = LocalDate.now();
+        a = d.getYear();
+        m = d.getMonth();
+        g = d.getDayOfMonth();
+        
     }
     
     public Data(int g, int m, int a) {
@@ -96,7 +103,7 @@ public class Data {
         return testo;
     }
     
-    public static int nGiorni(){
+    public int nGiorni(){
         int diff=0;
         int g1 = 1;
         int g2 = 2;

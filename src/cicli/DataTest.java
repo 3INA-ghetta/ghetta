@@ -22,7 +22,7 @@ public class DataTest {
         Data d = new Data (g,m,a);
         
         System.out.println(d.info());
-        System.out.println(Data.nGiorni());
+        System.out.println(d.nGiorni());
                 
     }
     
