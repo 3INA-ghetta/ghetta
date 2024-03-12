@@ -11,7 +11,7 @@ public class Data {
     public Data() {
         LocalDate d = LocalDate.now();
         a = d.getYear();
-        m = d.getMonth();
+        m = d.getDayOfMonth();
         g = d.getDayOfMonth();
         
     }

@@ -9,13 +9,22 @@ int [] array = new int [6];
     public SuperEnalottoNew() {
     }
 
-    public int [] superEnalottoArray() {   
+    public int[] superEnalottoArray() {
+        int[] valori = new int[6];
+        int i = 0;
         Random r = new Random();
-        for (int i = 0; i <= array.length; i++){
-            array[i] = r.nextInt(100);
-        }
+        do {
+            valori[i] = r.nextInt(99)+1;
+            i++;
+        } while (valori[0] == valori[1] || valori[0] == valori[2] || valori[0] == valori[3] || valori[0] == valori[4] || valori[0] == valori[5]
+        || valori[1] == valori[2] || valori[1] == valori[3] || valori[1] == valori[4] || valori[1] == valori[5]
+        || valori[2] == valori[3] || valori[2] == valori[4] || valori[2] == valori[5]
+        || valori[3] == valori[4] || valori[3] == valori[5]
+        || valori[4] == valori[5] || valori[5] == 0);
 
-        return array;
+  
+
+        return valori;
     }
     
     
