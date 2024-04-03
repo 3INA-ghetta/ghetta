@@ -2,15 +2,16 @@ package superEnalotto;
 
 import java.util.Random;
 
-public class SuperEnalottoNew {
+public class SuperEnalottoNewEvo {
     
-int [] numeri = new int [6];
+    private int [] valori;
 
-    public SuperEnalottoNew() {
+    public int [] getValori(){
+        return valori;
     }
 
-    public int[] superEnalottoArray() {
-        int[] valori = new int[6];
+    public void estrazioneNumeri() {
+        valori = new int[6];
         int i = 0;
         Random r = new Random();
         do {
@@ -21,10 +22,11 @@ int [] numeri = new int [6];
         || valori[2] == valori[3] || valori[2] == valori[4] || valori[2] == valori[5]
         || valori[3] == valori[4] || valori[3] == valori[5]
         || valori[4] == valori[5] || valori[5] == 0);
-
-  
-
-        return valori;
+        
+    }
+    
+    public boolean controlloVincita(int [] numeri){
+        
     }
     
 }
