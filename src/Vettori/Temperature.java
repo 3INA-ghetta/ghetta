@@ -8,13 +8,14 @@ package Vettori;
  */
 public class Temperature {
     
-    private final int [] temp = {2,1,3,4,6,7,5};
+    private final float [] temp = {2,1,3,4,6,7,5};
     final private String giorni [] = {"lunedi", "martedi", "mercoledi","giovedi","venerdi","sabato","domenica" };
 
     public Temperature() {
+        
     }
     
-    public int [] getTemp(){
+    public float [] getTemp(){
         return temp;
     }
     
@@ -50,8 +51,8 @@ public class Temperature {
     }
     
     public String minMax(){
-        int max = 0;
-        int min = 60;
+        float max = 0;
+        float min = 60;
         int g = 0;
         String testo;
         
@@ -71,5 +72,28 @@ public class Temperature {
     
         return testo;
     }
+    
+    public boolean aggiungiTemperatura(){
+        
+        boolean inserito = false;
+        float i = 0;
+        
+        while (i < temp.length){
+        if (isValido() == true){
+            i++;
+        }else {
+            i--;
+        }
+        
+        }
+        
+        inserito = true;
+        
+        return inserito;
+        
+        
+            
+    }
+    
     
 }
