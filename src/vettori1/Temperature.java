@@ -1,5 +1,5 @@
 
-package Vettori;
+package vettori1;
 
 /**
  * scrivere classe che date temperature di una settimana, ne calcoli la media e 
