@@ -23,9 +23,9 @@ public class ConvBinToDev {
                 val = false;
             }
         }
-        if(val == true){
-            for(int k = 0; k < bin.length;k++){
-                this.bin[k] = bit[k]; 
+        if(val){
+            for(int k = 0; k < bin.length;k++){   //copiare cosi per evitare modifica valore altro array
+                this.bin[k] = bit[k];             
             }
         }
         return val;

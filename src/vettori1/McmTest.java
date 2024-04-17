@@ -7,15 +7,21 @@ public class McmTest {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         
-        int n1, n2;
+        int n1,n=0,i=0;
+        int num [] = new int [n];
         
-        System.out.println("Inserisci primo numero: ");
-        n1 = in.nextInt();
+        System.out.println("Inserisci numero di numeri: ");
+        n = in.nextInt();
         
-        System.out.println("Inserisci secondo numero: ");
-        n2 = in.nextInt();
+        Mcm m = new Mcm();
         
-        Mcm m = new Mcm(n1, n2);
+        System.out.println("Inserisci numeri: ");
+        
+        do{
+            num[i] = in.nextInt();
+            i++;
+        }while(i < n); 
+        
         
         System.out.println("Il minimo comune multiplo é : " + m.calMCM());
     }
