@@ -10,6 +10,10 @@ public class VettoreTest {
         Scanner in = new Scanner(System.in);
         int valore,posizione,posizione1,valore1;
         
+        Vettore v = new Vettore ();
+                
+        System.out.print(v.visualizzaVettore());
+        
         System.out.print("inserisci posizione da modificare: ");
         posizione = in.nextInt();
         
@@ -23,10 +27,6 @@ public class VettoreTest {
         System.out.print("inserisci valore dell' elemento da rimuovere: ");
         valore1 = in.nextInt();
         
-        Vettore v = new Vettore ();
-        
-        
-        System.out.print(v.visualizzaVettore());
         System.out.printf("%b \n", v.modificaElemento(posizione, valore));
         System.out.printf("%b \n", v.rimuoviElementoPerPosizione(posizione1));
         System.out.printf("%b \n", v.rimuoviElementoPerValore(valore1));
