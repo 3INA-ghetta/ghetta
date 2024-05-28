@@ -285,6 +285,7 @@ public class VettoreNew {
        VettoreNew v = new VettoreNew();
                 
        System.out.print(v.visualizzaVettore());
+       System.out.print("\n");
        
        /*
        System.out.print("inserisci posizione da modificare: ");
