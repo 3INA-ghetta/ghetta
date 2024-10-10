@@ -7,21 +7,23 @@ package tris;
 
 import java.awt.Color;
 
-
 /**
  *
  * @author matte
  */
-public class TrisForm extends javax.swing.JFrame {
+public class TrisForm1 extends javax.swing.JFrame {
+    
+    String gX = "franco" , gO = "giacomo", next;
+    int dim = 4,  riga, colonna;
 
-    Tris t = new Tris();
+    TrisErrato t = new TrisErrato(dim, gX, gO);
     private int i = 0;
     private boolean attivato = false;
 
     /**
      * Creates new form TrisForm
      */
-    public TrisForm() {
+    public TrisForm1() {
         initComponents();
     }
 
@@ -45,10 +47,8 @@ public class TrisForm extends javax.swing.JFrame {
         btn8 = new javax.swing.JButton();
         btn9 = new javax.swing.JButton();
         lblRisultato = new javax.swing.JLabel();
-        lblRestart = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 650));
 
         lblTitolo.setFont(new java.awt.Font("Impact", 1, 72)); // NOI18N
         lblTitolo.setForeground(new java.awt.Color(255, 0, 0));
@@ -122,14 +122,6 @@ public class TrisForm extends javax.swing.JFrame {
         lblRisultato.setFont(new java.awt.Font("Impact", 1, 48)); // NOI18N
         lblRisultato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        lblRestart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblRestart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRestart.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRestartMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,14 +149,9 @@ public class TrisForm extends javax.swing.JFrame {
                             .addComponent(btn9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(126, 126, 126))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(307, 307, 307)
-                        .addComponent(lblTitolo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(269, 269, 269)
-                        .addComponent(lblRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(307, 307, 307)
+                .addComponent(lblTitolo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(314, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,9 +180,7 @@ public class TrisForm extends javax.swing.JFrame {
                     .addComponent(btn9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblRisultato)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblRestart, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                .addGap(43, 43, 43))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,27 +188,28 @@ public class TrisForm extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 0;
+        colonna = 0;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn1.setText("X");
             btn1.setForeground(Color.black);
             btn1.setEnabled(false);
-            if (t.giocatore1(0, 0) == true) {
 
-            }
         } else {
             btn1.setText("O");
             i++;
             btn1.setForeground(Color.red);
             btn1.setEnabled(false);
-            if (t.giocatore2(0, 0)) {
 
-            }
         }
-
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -232,12 +218,12 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -246,40 +232,42 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
-            
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+            attivato = true;    
         }
+            
+        if (next.equals("=")){
+                
+            System.out.println("parità");
+            attivato = true;
+                
+        }
+        
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 0;
+        colonna = 1;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn2.setText("X");
             btn2.setForeground(Color.black);
             btn2.setEnabled(false);
-            if (t.giocatore1(0, 1)) {
 
-            }
         } else {
             btn2.setText("O");
             i++;
             btn2.setForeground(Color.red);
             btn2.setEnabled(false);
-            if (t.giocatore2(0, 1)) {
 
-            }
         }
-
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
-            btn1.setEnabled(false);
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -288,13 +276,12 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
-            btn1.setEnabled(false);
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -303,40 +290,41 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
+        if (next.equals("=")){
+                
+            System.out.println("parità");
             attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+                
         }
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 0;
+        colonna = 2;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn3.setText("X");
             btn3.setForeground(Color.black);
             btn3.setEnabled(false);
-            if (t.giocatore1(0, 2)) {
 
-            }
         } else {
             btn3.setText("O");
             i++;
             btn3.setForeground(Color.red);
             btn3.setEnabled(false);
-            if (t.giocatore2(0, 2)) {
 
-            }
         }
-
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
-            btn1.setEnabled(false);
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -345,13 +333,12 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
-            btn1.setEnabled(false);
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -360,40 +347,41 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
+        if (next.equals("=")){
+                
+            System.out.println("parità");
             attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+                
         }
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 1;
+        colonna = 0;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn4.setText("X");
             btn4.setForeground(Color.black);
             btn4.setEnabled(false);
-            if (t.giocatore1(1, 0)) {
 
-            }
         } else {
             btn4.setText("O");
             i++;
             btn4.setForeground(Color.red);
             btn4.setEnabled(false);
-            if (t.giocatore2(1, 0)) {
 
-            }
         }
-
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
-            btn1.setEnabled(false);
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -402,13 +390,12 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
-            btn1.setEnabled(false);
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -417,40 +404,41 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
+        if (next.equals("=")){
+                
+            System.out.println("parità");
             attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+                
         }
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 1;
+        colonna = 1;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn5.setText("X");
             btn5.setForeground(Color.black);
             btn5.setEnabled(false);
-            if (t.giocatore1(1, 1)) {
 
-            }
         } else {
             btn5.setText("O");
             i++;
             btn5.setForeground(Color.red);
             btn5.setEnabled(false);
-            if (t.giocatore2(1, 1)) {
 
-            }
         }
-
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
-            btn1.setEnabled(false);
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -459,13 +447,12 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
-            btn1.setEnabled(false);
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -474,97 +461,99 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
+        if (next.equals("=")){
+                
+            System.out.println("parità");
             attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+                
         }
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 1;
+        colonna = 2;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn6.setText("X");
             btn6.setForeground(Color.black);
             btn6.setEnabled(false);
-            if (t.giocatore1(1, 2)) {
 
-            }
         } else {
             btn6.setText("O");
             i++;
             btn6.setForeground(Color.red);
             btn6.setEnabled(false);
-            if (t.giocatore2(1, 2)) {
 
-            }
         }
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
+            btn2.setEnabled(false);
+            btn3.setEnabled(false);
+            btn4.setEnabled(false);
+            btn5.setEnabled(false);
+            btn6.setEnabled(false);
+            btn7.setEnabled(false);
+            btn8.setEnabled(false);
+            btn9.setEnabled(false);
+            attivato = true;    
+        }
+            
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
+            btn2.setEnabled(false);
+            btn3.setEnabled(false);
+            btn4.setEnabled(false);
+            btn5.setEnabled(false);
+            btn6.setEnabled(false);
+            btn7.setEnabled(false);
+            btn8.setEnabled(false);
+            btn9.setEnabled(false);
+            attivato = true;    
+        }
+            
+        if (next.equals("=")){
+                
+            System.out.println("parità");
+            attivato = true;
 
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
-            btn1.setEnabled(false);
-            btn2.setEnabled(false);
-            btn3.setEnabled(false);
-            btn4.setEnabled(false);
-            btn5.setEnabled(false);
-            btn6.setEnabled(false);
-            btn7.setEnabled(false);
-            btn8.setEnabled(false);
-            btn9.setEnabled(false);
-            
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
-            btn1.setEnabled(false);
-            btn2.setEnabled(false);
-            btn3.setEnabled(false);
-            btn4.setEnabled(false);
-            btn5.setEnabled(false);
-            btn6.setEnabled(false);
-            btn7.setEnabled(false);
-            btn8.setEnabled(false);
-            btn9.setEnabled(false);
-            
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+                
         }
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 2;
+        colonna = 1;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn8.setText("X");
             btn8.setForeground(Color.black);
             btn8.setEnabled(false);
-            if (t.giocatore1(2, 1)) {
 
-            }
         } else {
             btn8.setText("O");
             i++;
             btn8.setForeground(Color.red);
             btn8.setEnabled(false);
-            if (t.giocatore2(2, 1)) {
 
-            }
         }
-
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
-            btn1.setEnabled(false);
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -573,13 +562,12 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
-            btn1.setEnabled(false);
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -588,40 +576,41 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
+        if (next.equals("=")){
+                
+            System.out.println("parità");
             attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+                
         }
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 2;
+        colonna = 2;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn9.setText("X");
             btn9.setForeground(Color.black);
             btn9.setEnabled(false);
-            if (t.giocatore1(2, 2)) {
 
-            }
         } else {
             btn9.setText("O");
             i++;
             btn9.setForeground(Color.red);
             btn9.setEnabled(false);
-            if (t.giocatore2(2, 2)) {
 
-            }
         }
-
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
-            btn1.setEnabled(false);
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -630,13 +619,12 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
-            btn1.setEnabled(false);
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -645,40 +633,41 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
+        if (next.equals("=")){
+                
+            System.out.println("parità");
             attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+                
         }
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
-        t.riempiCampo();
+        riga = 2;
+        colonna = 0;
+        
+        next = t.gioca(riga,colonna);
+        
         if (i % 2 == 0) {
             i++;
             btn7.setText("X");
             btn7.setForeground(Color.black);
             btn7.setEnabled(false);
-            if (t.giocatore1(2, 0)) {
 
-            }
         } else {
             btn7.setText("O");
             i++;
             btn7.setForeground(Color.red);
             btn7.setEnabled(false);
-            if (t.giocatore2(2, 0)) {
 
-            }
         }
-
-        if (t.controllaVinto() == 1) {
-            lblRisultato.setText("VINCE GIOCATORE 1");
-            btn1.setEnabled(false);
+            
+        if (next.equals("X")){
+                
+            System.out.println("ha vinto giocatore x");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -687,13 +676,12 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if (t.controllaVinto() == 2) {
-            lblRisultato.setText("VINCE GIOCATORE 2");
-            lblRisultato.setForeground(Color.red);
-            btn1.setEnabled(false);
+        if (next.equals("O")){
+                
+            System.out.println("ha vinto giocatore o");
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -702,45 +690,16 @@ public class TrisForm extends javax.swing.JFrame {
             btn7.setEnabled(false);
             btn8.setEnabled(false);
             btn9.setEnabled(false);
+            attivato = true;    
+        }
             
+        if (next.equals("=")){
+                
+            System.out.println("parità");
             attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
-        } else if(i == 9){
-            lblRisultato.setText("PAREGGIO");
-            attivato = true;
-            lblRestart.setText("PREMERE QUI PER GIOCARE ANCORA");
+                
         }
     }//GEN-LAST:event_btn7ActionPerformed
-
-    private void lblRestartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRestartMouseClicked
-        // TODO add your handling code here:
-        if(attivato == true){
-            t.resetCampo();
-            i = 0;
-            lblRisultato.setText("");
-            lblRestart.setText("");
-            
-            btn1.setText("");
-            btn2.setText("");
-            btn3.setText("");
-            btn4.setText("");
-            btn5.setText("");
-            btn6.setText("");
-            btn7.setText("");
-            btn8.setText("");
-            btn9.setText("");
-            
-            btn1.setEnabled(true);
-            btn2.setEnabled(true);
-            btn3.setEnabled(true);
-            btn4.setEnabled(true);
-            btn5.setEnabled(true);
-            btn6.setEnabled(true);
-            btn7.setEnabled(true);
-            btn8.setEnabled(true);
-            btn9.setEnabled(true);
-        }
-    }//GEN-LAST:event_lblRestartMouseClicked
 
     /**
      * @param args the command line arguments
@@ -759,20 +718,21 @@ public class TrisForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TrisForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrisForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TrisForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrisForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TrisForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrisForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TrisForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrisForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TrisForm().setVisible(true);
+                new TrisForm1().setVisible(true);
             }
         });
     }
@@ -787,7 +747,6 @@ public class TrisForm extends javax.swing.JFrame {
     private javax.swing.JButton btn7;
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
-    private javax.swing.JLabel lblRestart;
     private javax.swing.JLabel lblRisultato;
     private javax.swing.JLabel lblTitolo;
     // End of variables declaration//GEN-END:variables
