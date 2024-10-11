@@ -2,12 +2,12 @@ package tris;
 
 import java.util.Objects;
 
-public final class TrisErrato {
+public final class TrisErrato1 {
     private String[][] campoDaGioco;    
     private String giocatoreX;
     private String giocatoreO;
 
-    public TrisErrato(int dimensione, String giocatoreX, String giocatoreO) {
+    public TrisErrato1(int dimensione, String giocatoreX, String giocatoreO) {
         campoDaGioco = new String[dimensione][dimensione];
         setGiocatoreX(giocatoreX);
         setGiocatoreO(giocatoreO);
@@ -186,7 +186,10 @@ public final class TrisErrato {
         return "";
     }
     
-    public String gioca(int riga, int colonna) {
+    public String gioca(String s) {
+        String [] ris;
+        ris = s.split(",");
+        int riga = Integer.parseInt(ris[0]), colonna = Integer.parseInt(ris[0]);
         if (Objects.equals(verificaTurnoDiGioco(), "X"))
             piazzaSegno("X", riga, colonna);
         else

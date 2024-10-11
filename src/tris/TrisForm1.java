@@ -14,7 +14,7 @@ import java.awt.Color;
 public class TrisForm1 extends javax.swing.JFrame {
     
     String gX = "franco" , gO = "giacomo", next;
-    int dim = 4,  riga, colonna;
+    int dim = 3,  riga, colonna;
 
     TrisErrato t = new TrisErrato(dim, gX, gO);
     private int i = 0;
@@ -209,7 +209,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -223,7 +223,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -237,7 +237,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
                 
         }
@@ -267,7 +267,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -281,7 +281,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -295,7 +295,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
                 
         }
@@ -324,7 +324,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -338,7 +338,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -352,7 +352,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
                 
         }
@@ -381,7 +381,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -395,7 +395,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -409,7 +409,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
                 
         }
@@ -438,7 +438,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -452,7 +452,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -466,7 +466,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
                 
         }
@@ -495,7 +495,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -509,7 +509,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -523,7 +523,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
 
                 
@@ -553,7 +553,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -567,7 +567,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -581,7 +581,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
                 
         }
@@ -610,7 +610,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -624,7 +624,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -638,7 +638,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
                 
         }
@@ -667,7 +667,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("X")){
                 
-            System.out.println("ha vinto giocatore x");
+            lblRisultato.setText("VINCE GIOCATORE:" + gX);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -681,7 +681,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("O")){
                 
-            System.out.println("ha vinto giocatore o");
+            lblRisultato.setText("VINCE GIOCATORE:" + gO);
             btn2.setEnabled(false);
             btn3.setEnabled(false);
             btn4.setEnabled(false);
@@ -695,7 +695,7 @@ public class TrisForm1 extends javax.swing.JFrame {
             
         if (next.equals("=")){
                 
-            System.out.println("parità");
+            lblRisultato.setText("parità");
             attivato = true;
                 
         }
