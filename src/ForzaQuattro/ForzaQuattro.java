@@ -33,25 +33,26 @@ public class ForzaQuattro {
         }
     }
     
-    private void stampaCampo(){
+    public String vCampo() {
+        String testo = "";
         for (int i = 0; i < campo.length; i++) {
             for (int j = 0; j < campo.length; j++) {
-                System.out.print(campo[i][j]);
+                testo += campo[i][j] + "_";
             }
-            System.out.println();
-
+            testo += "\n";
         }
-        
+        return testo;
     }
+    
     
     private String giocatore(){
         int i =2;
         if (i % 2 == 0){
             i--;
-            return "x";
+            return "X";
         }else{
             i++;
-            return "o";
+            return "O";
         }
     }
     
@@ -59,17 +60,25 @@ public class ForzaQuattro {
         if (Objects.equals(campo[riga][colonna], "_")) {
             return true;
         } else {
-            return false;
+            while (Objects.equals(campo[riga][colonna], "_") && riga < 5){
+                riga++;
+            }
+            if (riga >= 5){
+                return false;
+            }else{
+                return true;
+            }
+            
         }
     }
     
-    private String mettiPezzo(int colonna){ //fare sottomatrice per diagonale
+    public String mettiPezzo(int riga, int colonna){ //fare sottomatrice per diagonale
         
         int i = 0;
+        String next = vincita();
         
-        while (vincita() == ""){
-            if (campo[i][colonna]== )
-            if ( i < campo.length && i >= 0 && colonna < campo.length && colonna >= 0){
+        while (next.equals("X")){
+            if ( i < campo.length && i >= 0 && colonna < campo.length && colonna >= 0 && isCellaDisponibile(riga,colonna)){
                 campo[i][colonna]= giocatore();
             }
         }
@@ -78,7 +87,7 @@ public class ForzaQuattro {
  
     }
     
-    private String vincita (int colonna){
+    private String vincita (){
         
         int contX = 0;
         int contO = 0;
@@ -87,14 +96,14 @@ public class ForzaQuattro {
             for (int j = 0; j < campo.length; j++) {
                 if (Objects.equals(campo[i][j], "X")) {
                     contX++;
-                    if (contX == campo.length) {
+                    if (contX == 4) {
                         return "X";
                     }
                 }
                 
                 if (Objects.equals(campo[i][j], "O")) {
                     contO++;
-                    if (contO == campo.length) {
+                    if (contO == 4) {
                         return "O";
                     }
                 }
@@ -109,14 +118,14 @@ public class ForzaQuattro {
             for (int j = 0; j < campo.length; j++) {
                 if (Objects.equals(campo[j][i], "X")) {
                     contX++;
-                    if (contX == campo.length) {
+                    if (contX == 4) {
                         return "X";
                     }
                 }
                 
                 if (Objects.equals(campo[j][i], "O")) {
                     contO++;
-                    if (contO == campo.length) {
+                    if (contO == 4) {
                         return "O";
                     }
                 }
@@ -131,14 +140,14 @@ public class ForzaQuattro {
         for (int i = 0; i < campo.length; i++) {
             if (Objects.equals(campo[i][i], "X")) {
                 contX++;
-                if (contX == campo.length) {
+                if (contX == 4) {
                     return "X";
                 }
             }
             
             if (Objects.equals(campo[i][i], "O")) {
                 contO++;
-                if (contO == campo.length) {
+                if (contO == 4) {
                     return "O";
                 }
             }
@@ -151,14 +160,14 @@ public class ForzaQuattro {
             
             if (Objects.equals(campo[i][offset], "X")) {
                 contX++;
-                if (contX == campo.length) {
+                if (contX == 4) {
                     return "X";
                 }
             }
             
             if (Objects.equals(campo[i][offset], "O")) {
                 contO++;
-                if (contO == campo.length) {
+                if (contO == 4) {
                     return "O";
                 }
             }
@@ -172,7 +181,7 @@ public class ForzaQuattro {
                                       Objects.equals(campo[i][j], "O")) {
                     cont++;
                     
-                    if (cont == campo.length * campo.length) {
+                    if (cont == 6 * 7) {
                         return "=";
                     }
                 }
