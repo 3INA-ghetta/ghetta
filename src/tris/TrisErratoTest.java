@@ -8,9 +8,9 @@ public class TrisErratoTest {
         
         Scanner in = new Scanner (System.in);
         
-        int dim, riga, colonna;
-        String gX, gO, next;
-        
+        int dim=3; //riga, colonna;
+        String gX ="abc", gO ="agyh"; //next;
+        /*
         System.out.println("inserisci giocatore X");
         gX = in.nextLine();
         
@@ -19,10 +19,21 @@ public class TrisErratoTest {
         
         System.out.println("inserisci grandezza campo");
         dim = in.nextInt();
+        */
+        TrisErrato t;
         
-        TrisErrato t = new TrisErrato (dim, gX, gO);
-        System.out.print(t.info());
-        
+        try {
+            t = new TrisErrato (dim, gX, gO);
+            t.gioca(1,2);
+            t.gioca(0,1);
+            t.gioca(1,1);
+            t.gioca(1,2);
+            System.out.print(t.gioca(2,2));
+            System.out.print(t.info());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        /*
         do {
             System.out.println("inserisci riga");
             riga = in.nextInt();
@@ -52,7 +63,7 @@ public class TrisErratoTest {
             }
    
         }while(next.equals(""));
-        
+        */
   
     }
     

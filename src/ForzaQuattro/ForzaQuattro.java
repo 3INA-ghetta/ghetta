@@ -12,15 +12,18 @@ public class ForzaQuattro {
     
 
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         riempiCampo();
         giocatore = 'X';
         boolean a = true;
 
         while (a == true) {
-            stampaCampo();
-            int colonna = mossa();
+            System.out.println(stampaCampo());
+            System.out.println("Giocatore " + giocatore + ", scegli una colonna da 0 a 6: ");
+            int colonna = in.nextInt();
             int riga = mettiDisco(colonna);
             if (riga == -1) {
+                System.out.println("colonna sbagliata riprova");
                 System.out.println("colonna piena.");
             }
 
@@ -45,29 +48,25 @@ public class ForzaQuattro {
     private static void riempiCampo() {
         for (int r = 0; r < RIGHE; r++) {
             for (int c = 0; c < COLONNE; c++) {
-                campo[r][c] = '.';
+                campo[r][c] = '_';
             }
         }
     }
 
-    private static void stampaCampo() {
+    private static String stampaCampo() {
+        String testo="";
         for (int r = 0; r < RIGHE; r++) {
+            testo += "\n";
             for (int c = 0; c < COLONNE; c++) {
-                System.out.print(campo[r][c] + " ");
+                testo +=(campo[r][c] + " ");
             }
-            System.out.println();
-        }
-    }
 
-    private static int mossa() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Giocatore " + giocatore + ", scegli una colonna da 0 a 6: ");
-        return in.nextInt();
+        }
+        return testo;
     }
 
     private static int mettiDisco(int colonna) {
         if (colonna < 0 || colonna >= COLONNE) {
-            System.out.println("colonna sbagliata riprova");
             return -1;
         }
 
@@ -81,10 +80,13 @@ public class ForzaQuattro {
     }
 
     private static boolean vincita(int riga, int colonna) {
-        return direzione(riga, colonna, 1, 0) || 
-               direzione(riga, colonna, 0, 1) || 
-               direzione(riga, colonna, 1, 1) || 
-               direzione(riga, colonna, 1, -1);  
+        
+        if (direzione(riga, colonna, 1, 0) || direzione(riga, colonna, 0, 1) || 
+            direzione(riga, colonna, 1, 1) || direzione(riga, colonna, 1, -1)){
+            return true;
+        }else{
+        return false;
+        }
     }
 
     private static boolean direzione(int riga, int colonna, int rigaSecondaria, int colonnaSecondaria) {
@@ -111,9 +113,12 @@ public class ForzaQuattro {
                 break;
             }
         }
-        
-        return conta >= 4;
-    }
+        if (conta>= 4){
+            return true;
+        }else {
+            return false;
+        }
+    }   
 }
 
     

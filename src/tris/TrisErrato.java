@@ -4,41 +4,107 @@ import java.util.Objects;
 
 public final class TrisErrato {
     private String[][] campoDaGioco;    
+    private int dimensione;
     private String giocatoreX;
     private String giocatoreO;
-
-    public TrisErrato(int dimensione, String giocatoreX, String giocatoreO) {
-        campoDaGioco = new String[dimensione][dimensione];
-        setGiocatoreX(giocatoreX);
-        setGiocatoreO(giocatoreO);
-        
-        inizializzaCampoDaGioco();
+    
+    
+    /**
+     * costruttore senza parametri
+     */
+    public TrisErrato(){      
     }
     
+    /**
+     * Costruttore
+     * @param dimensione
+     * @param giocatoreX
+     * @param giocatoreO
+     * @throws Exception 
+     */
+    public TrisErrato(int dimensione, String giocatoreX, String giocatoreO) throws Exception {
+        
+        setDimensione(dimensione);
+        setGiocatoreX(giocatoreX);
+        setGiocatoreO(giocatoreO);
+     
+    }
+    /**
+     * 
+     * @return 
+     */
     public String[][] getCampoDaGioco() {
         return this.campoDaGioco;
     }    
-    
+    /**
+     * 
+     * @return 
+     */
+    public int getDimensione() {
+        return dimensione;
+    }
+    /**
+     * 
+     * @param dimensione
+     * @throws Exception 
+     */
+    public void setDimensione(int dimensione) throws Exception {
+        if(dimensione >= 3){
+            this.dimensione = dimensione;
+            campoDaGioco = new String[dimensione][dimensione];
+            inizializzaCampoDaGioco();
+        }else
+            throw new Exception ("la dimensione deve essere magiore o uguale a 3");
+    }
+    /**
+     * restituisce il giocatoreX
+     * @return 
+     */
     public String getGiocatoreX() {
             return giocatoreX;
     }
-
-    public void setGiocatoreX(String giocatoreX) { 
+    /**
+     * imposta nome giocatore X
+     * @param giocatoreX String
+     * @throws java.lang.Exception 
+     */
+    public void setGiocatoreX(String giocatoreX) throws Exception { 
         if (giocatoreX.length() >= 2)
-        this.giocatoreX = giocatoreX;
+            if(giocatoreX.length() <= 10)
+                this.giocatoreX = giocatoreX;
+            else
+                throw new Exception("nome del giocatore x troppo lungo");
+        else
+            throw new Exception("nome del giocatore x troppo corto");
+        
     }        
-    
+    /**
+     * restituisce il giocatoreO
+     * @return 
+     */
     public String getGiocatoreO() {
   
             return giocatoreO;
 
     }
-
-    public void setGiocatoreO(String giocatoreO) {
+    /**
+     * imposta nome del giocatoreO
+     * @param giocatoreO
+     * @throws Exception 
+     */
+    public void setGiocatoreO(String giocatoreO) throws Exception{
         if (giocatoreO.length() >= 2)
-        this.giocatoreO = giocatoreO;
+            if(giocatoreX.length() <= 10)
+                this.giocatoreO = giocatoreO;
+            else 
+                throw new Exception("nome del giocatore o troppo lungo");
+        else
+            throw new Exception("nome del giocatore o troppo corto");
+        
     }
-    
+    /**
+     * iniziallizza il campo
+     */
     private void inizializzaCampoDaGioco() {
         for (int i = 0; i < campoDaGioco.length; i++) {
             for (int j = 0; j < campoDaGioco.length; j++) {
@@ -46,7 +112,12 @@ public final class TrisErrato {
             }
         }
     }
-
+    /**
+     * controlla se la cella è libera
+     * @param riga
+     * @param colonna
+     * @return 
+     */
     private boolean isCellaDisponibile(int riga, int colonna) {
         if (Objects.equals(campoDaGioco[riga][colonna], " ")) {
             return true;
@@ -54,7 +125,10 @@ public final class TrisErrato {
             return false;
         }
     }
-
+    /**
+     * controlla il turno dei giocatore
+     * @return 
+     */
     private String verificaTurnoDiGioco() {
         int contX = 0;
         int contO = 0;
@@ -75,12 +149,20 @@ public final class TrisErrato {
         else
             return "X";
     }
-
+    /**
+     * inserisce il segno
+     * @param segno
+     * @param riga
+     * @param colonna 
+     */
     private void piazzaSegno(String segno, int riga, int colonna) {
-        if (isCellaDisponibile(riga, colonna) && riga < campoDaGioco.length && riga >= 0 && colonna < campoDaGioco.length && colonna >= 0)
+        if (isCellaDisponibile(riga, colonna))
             campoDaGioco[riga][colonna] = segno;
     }
-
+    /**
+     * verifica la vincita
+     * @return 
+     */
     private String verificaVincitaOParita() {
         // Righe       
         int contX = 0;
@@ -185,16 +267,30 @@ public final class TrisErrato {
         // Nessuna vincita
         return "";
     }
-    
-    public String gioca(int riga, int colonna) {
-        if (Objects.equals(verificaTurnoDiGioco(), "X"))
-            piazzaSegno("X", riga, colonna);
+    /**
+     * 
+     * @param riga
+     * @param colonna
+     * @return
+     * @throws Exception 
+     */
+    public String gioca(int riga, int colonna) throws Exception {
+        if(campoDaGioco != null)
+            if( riga < campoDaGioco.length && riga >= 0 && colonna < campoDaGioco.length && colonna >= 0)
+                if (Objects.equals(verificaTurnoDiGioco(), "X"))
+                    piazzaSegno("X", riga, colonna);
+                else
+                    piazzaSegno("O", riga, colonna);
+            else
+                throw new Exception("coordinate errate");
         else
-            piazzaSegno("O", riga, colonna);
-
+            throw new Exception("non è stata impostata la dimensione del campo");
         return verificaVincitaOParita();        
     }
-
+    /**
+     * stampa i bordi del campo
+     * @return 
+     */
     public String info() {
         String matrice = "\n┌──────┐\n";
 
