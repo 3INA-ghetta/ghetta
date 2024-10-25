@@ -15,8 +15,6 @@ public class TrisForm1 extends javax.swing.JFrame {
     
     String gX = "franco" , gO = "giacomo", next;
     int dim = 3,  riga, colonna;
-
-    TrisErrato t = new TrisErrato(dim, gX, gO);
     private int i = 0;
     private boolean attivato = false;
 
@@ -190,6 +188,16 @@ public class TrisForm1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         riga = 0;
         colonna = 0;
+        
+        try{
+    
+        TrisErrato t = new TrisErrato(dim, gX, gO);
+
+        }
+        catch (Exception ex){
+                System.out.println("inswdw");
+    
+        }
         
         next = t.gioca(riga,colonna);
         

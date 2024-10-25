@@ -130,7 +130,8 @@ public final class TrisErrato1 {
         }
 
         // Diagonale principale
-        
+        contX = 0;
+        contO = 0;
         for (int i = 0; i < campoDaGioco.length; i++) {
             if (Objects.equals(campoDaGioco[i][i], "X")) {
                 contX++;
@@ -148,6 +149,8 @@ public final class TrisErrato1 {
         }                
 
         // Diagonale secondaria
+        contX = 0;
+        contO = 0;
         int riga = campoDaGioco.length-1;
         for (int i = riga; i >= 0; i--) {
             int offset = riga-1;

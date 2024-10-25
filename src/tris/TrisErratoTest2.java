@@ -7,8 +7,6 @@ public class TrisErratoTest2 {
         Integer dimensione=3;
         String gX= "AX", gO= "BACaaaaaaaaaaaa";
         
-        Tris tris = new Tris();
-        
         TrisErrato t;
         
         try {
