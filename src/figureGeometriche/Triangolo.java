@@ -9,10 +9,10 @@ package figureGeometriche;
  * @version 1.0
  */
 public class Triangolo {
-    final private float NF_TE;
-    private float l1;
-    private float l2;
-    private float l3;
+    final private Float NF_TE;
+    private Float l1;
+    private Float l2;
+    private Float l3;
     private String unitàMisura;
     
     /**
@@ -24,18 +24,16 @@ public class Triangolo {
     }
     /**
      * classe con parametri
-     * @param NF_TE
      * @param l1
      * @param l2
      * @param l3 
-     * @param unitàMisura
+     * @throws java.lang.Exception
      */
-    public Triangolo(float NF_TE, float l1, float l2, float l3, String unitàMisura) {
-        this.NF_TE = NF_TE;
-        this.l1 = l1;
-        this.l2 = l2;
-        this.l3 = l3;
-        this.unitàMisura = unitàMisura;
+    public Triangolo( float l1, float l2, float l3) throws Exception {
+        this();
+        setL1(l1);
+        setL2(l2);
+        setL3(l3);
     }
     /**
      * restituisce NF_TE
@@ -54,9 +52,13 @@ public class Triangolo {
     /**
      * imposta/modifica l1
      * @param l1 
+     * @throws java.lang.Exception 
      */
-    public void setL1(float l1) {
-        this.l1 = l1;
+    public void setL1(float l1) throws Exception {
+        if(l1 > 0)
+            this.l1 = l1;
+        else 
+            throw new Exception("deve essere maggiore di 0");
     }
     /**
      * restituisce l2
@@ -68,9 +70,13 @@ public class Triangolo {
     /**
      * imposta/modifica l2
      * @param l2 
+     * @throws java.lang.Exception 
      */
-    public void setL2(float l2) {
-        this.l2 = l2;
+    public void setL2(float l2) throws Exception {
+        if(l1 > 0)
+            this.l2 = l2;
+        else 
+            throw new Exception("deve essere maggiore di 0");
     }
     /**
      * restituisce l3
@@ -82,9 +88,13 @@ public class Triangolo {
     /**
      * imposta/modifica l3
      * @param l3 
+     * @throws java.lang.Exception 
      */
-    public void setL3(float l3) {
-        this.l3 = l3;
+    public void setL3(float l3) throws Exception {
+        if(l1 > 0)
+            this.l3 = l3;
+        else 
+            throw new Exception("deve essere maggiore di 0");
     }
     /**
      * restituisce unitàMisura
@@ -96,9 +106,14 @@ public class Triangolo {
     /**
      * imposta/modifica unitàMisura
      * @param unitàMisura 
+     * @throws java.lang.Exception 
      */
-    public void setUnitàMisura(String unitàMisura){
-        this.unitàMisura = unitàMisura;
+    public void setUnitàMisura(String unitàMisura) throws Exception{
+        if("cm".equals(unitàMisura) || "m".equals(unitàMisura) || "km".equals(unitàMisura)
+                || "dm".equals(unitàMisura) || "mm".equals(unitàMisura))
+            this.unitàMisura = unitàMisura;
+        else
+            throw new Exception("deve essere una misura valida in metrico e scritta abbreviata"); 
     }
     /**
      * restituisce testo
@@ -118,7 +133,7 @@ public class Triangolo {
     public float perimetro () {
         float p=0;
         if (isTriangolo()==true)
-         p = l1+l2+l3;
+            p = l1+l2+l3;
         
         return p;    
     }
@@ -142,8 +157,8 @@ public class Triangolo {
     public float area() {
       float area=0;
       if (isTriangolo()==true)
-       area = (float) Math.sqrt(calcolaSemiperimetro()*(calcolaSemiperimetro()-l1)
-              *(calcolaSemiperimetro()-l2*(calcolaSemiperimetro()-l3)));
+        area = (float) Math.sqrt(calcolaSemiperimetro()*(calcolaSemiperimetro()-l1)
+            *(calcolaSemiperimetro()-l2*(calcolaSemiperimetro()-l3)));
     
       return area;
     }
@@ -167,6 +182,7 @@ public class Triangolo {
      * restituisce il valore tipo
      * @return 
      */
+    /*
     public String tipo1() {
         String tipo ="";
         
@@ -179,6 +195,7 @@ public class Triangolo {
         }
         return tipo;
     }
+    */
     /**
      * restituisce il valore v
      * @return 
@@ -197,7 +214,7 @@ public class Triangolo {
         float a=0;
         //add condizione
         if (tipo().equals("equilatero"))
-         a = l1 * NF_TE;        
+            a = l1 * NF_TE;        
         return a;    
     }
     // altezza lato* (math.sqrt(3) /2)
@@ -205,9 +222,9 @@ public class Triangolo {
     public float altezza() {
         float h=0;
         if (tipo().equals("equilatero"))
-         h = (float) (l1 * Math.sqrt(3)/2);
+            h = (float) (l1 * Math.sqrt(3)/2);
         else
-         h = 0;
+            h = 0;
         return h;    
     }
  
