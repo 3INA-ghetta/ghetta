@@ -33,17 +33,22 @@ public class Persona7 {
         numeroIstanze++;
     }
 
+    Persona7(Persona7 sindaco, Persona7 sindaco0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     public String getCognome() {
         return cognome;
     }
 
     public void setCognome(String cognome) throws Exception {
-        Pattern pattern = Pattern.compile("^[a-z]{2,16}$", Pattern.CASE_INSENSITIVE);
-        Pattern pattern1 = Pattern.compile("^[A-Z]+");
-        if(pattern1.matcher(cognome).matches())
-            if(pattern.matcher(cognome).matches())
+        Pattern pattern = Pattern.compile("[a-z]{2,16}$", Pattern.CASE_INSENSITIVE);
+        if(pattern.matcher(cognome).matches() && cognome != null)
+            if(Character.isUpperCase(cognome.charAt(0)))
                 this.cognome = cognome;
+            else
+                throw new Exception ("manca la maiuscola");
         else
             throw new Exception ("il cognome non è stato inserito correttamente");
     }
@@ -66,7 +71,7 @@ public class Persona7 {
 
     public void setEmail(String email) throws Exception {
         Pattern pattern = Pattern.compile("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}");
-        if(pattern.matcher(email).matches())
+        if(pattern.matcher(email).matches() && email != null)
             this.email= email;
         else
             throw new Exception("email errata"); 
@@ -78,7 +83,7 @@ public class Persona7 {
 
     public void setPassword(String password) throws Exception {
         Pattern pattern = Pattern.compile("(?=.*[@#$%])([a-z])(?=.*[A-Z])(?=.*\\d){8,16}");
-        if(pattern.matcher(password).matches())
+        if(pattern.matcher(password).matches() && password != null)
             this.password = password;
         else
             throw new Exception("password errata");  
@@ -122,26 +127,15 @@ public class Persona7 {
     }
     
     public void setNome(String nome) throws Exception {
-        Pattern pattern = Pattern.compile("^[a-z]{2,16}$" , Pattern.CASE_INSENSITIVE);
-        Pattern pattern1 = Pattern.compile("^[A-Z]+");
-        Pattern pattern2 = Pattern.compile("[ ]+");
-        Pattern pattern3 = Pattern.compile("[ ]?");
-        String [] temp = nome.split(" ");
-        
+        Pattern pattern = Pattern.compile("[a-z ]{2,16}$" , Pattern.CASE_INSENSITIVE);    
         
         if(pattern.matcher(nome).matches())
-            if(pattern1.matcher(nome).matches())
-                if(pattern2.matcher(nome).matches())
-                    if(pattern3.matcher(nome).matches())
-                        this.nome=nome;
-                    else
-                        throw new Exception("massimo due nomi");
-                else
-                    this.nome=nome;
+            if(Character.isUpperCase(nome.charAt(0)))
+                this.nome=nome;
             else
-                throw new Exception("mancana la maiscola iniziale");
+                throw new Exception("manca la maiscola iniziale");
         else
-            throw new Exception("mancano le maiuscole per il secondo nome");
+            throw new Exception("inserito in modo scorretto");
                             
 
     }
@@ -157,7 +151,7 @@ public class Persona7 {
         int annoAttuale = dataOdierna.get(Calendar.YEAR);
         int a= Integer.parseInt(temp[1]);
         int b= Integer.parseInt(temp[2]);
-        if(dataDiNascita.charAt(2) == '/' && dataDiNascita.charAt(5) == '/' && dataDiNascita.length()>9){
+        if(dataDiNascita.charAt(2) == '/' && dataDiNascita.charAt(5) == '/' && dataDiNascita.length()>9 && dataDiNascita != null){
             if( b < annoAttuale){
                 if(b >= 0 ){
                     if(a <= 12){
@@ -230,13 +224,13 @@ public class Persona7 {
         String testo;
         
         testo = "nome: " + nome + "\n" + "altezza:" + altezza + "\n" +
-                "dataDiNascita: " + dataDiNascita;
+                "dataDiNascita: " + dataDiNascita + "peso: " + peso + "password: " + password + "email: " + email + "cognome: " + cognome;
         
         return testo;
     }
     
     public boolean verificaOmonimia (Persona7 p){
-        if(p.altezza.equals(altezza) && p.nome.equals(nome) && p.dataDiNascita.equals(dataDiNascita)){
+        if(p.nome.equals(nome) && p.cognome.equals(cognome) && p.nome != null && p.cognome != null){
             return true;
         }else{
             return false;
@@ -247,7 +241,7 @@ public class Persona7 {
         
         try{
             
-            Persona7 pe = new Persona7 (1.4, "Marco Fabio", "22/12/2000", "Rossi", 2.1 , "ciao@afff.net", "Termo123%aaaaa");
+            Persona7 pe = new Persona7 (1.4, "Marco", "22/12/2000", "Rossi", 2.1 , "ciao@afff.net", "Termo$123%aaaaa");
             
         }catch(Exception ex){
            System.out.println(ex.getMessage());
