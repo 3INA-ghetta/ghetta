@@ -1,9 +1,7 @@
-
 package Exception;
 
-import java.util.regex.Pattern;
-
 public class Citta {
+
     private String nome;
     private String superficie;
     private Persona7 sindaco;
@@ -24,17 +22,19 @@ public class Citta {
     }
 
     public void setNome(String nome) throws Exception {
-        Pattern pattern = Pattern.compile("[a-z]{2,16}$", Pattern.CASE_INSENSITIVE);
-        if(nome != null)
-            if(pattern.matcher(nome).matches())
-                if(Character.isUpperCase(nome.charAt(0)))
-                    this.nome=nome;
-                else 
-                   throw new Exception ("non può essere null");
-            else
-                throw new Exception ("non può essere null");
-        else
-            throw new Exception ("non può essere null");
+        if (nome != null) {
+            if (Character.isUpperCase(nome.charAt(0)) == true) {
+                if (nome.matches("\\D+")) {
+                    this.nome = nome;
+                } else {
+                    throw new Exception("Il nome della città deve contenere SOLO lettere");
+                }
+            } else {
+                throw new Exception("La prima lettera del nome della città DEVE essere maiuscola");
+            }
+        } else {
+            throw new Exception("Il nome della città NON deve essere null");
+        }
     }
 
     public String getSuperficie() {
@@ -42,13 +42,15 @@ public class Citta {
     }
 
     public void setSuperficie(String superficie) throws Exception {
-        if(superficie != null)
-            if(superficie.matches("[0-9\\,\\.]+[km,m]+"))
+        if (superficie != null) {
+            if (superficie.matches("[0-9\\,]+[km,m]+")) {
                 this.superficie = superficie;
-            else
-                throw new Exception ("sintassi errata");
-        else            
-            throw new Exception ("non può essere null");
+            } else {
+                throw new Exception("Scrivere prima il numero e dopo l'untità di misura");
+            }
+        } else {
+            throw new Exception("La superficie NON deve essere null");
+        }
     }
 
     public Persona7 getSindaco() {
@@ -56,69 +58,87 @@ public class Citta {
     }
 
     public void setSindaco(Persona7 sindaco) throws Exception {
-        if(sindaco != null)
+        if (sindaco != null) {
             this.sindaco = sindaco;
-        else
-            throw new Exception ("non può essere null");
+        } else {
+            throw new Exception("Il nome del sindaco NON può essere null");
+        }
     }
 
     public Persona7[] getAbitanti() {
         return abitanti;
     }
 
-    public void setAbitanti(Persona7[] abitanti) throws Exception {
-        if(abitanti != null)
-            this.abitanti = new Persona7[abitanti.length+1];
-            this.abitanti[0] = sindaco;
-            for(int i =0; i < abitanti.length; i++){
-                this.abitanti[i] = abitanti[i];
-            }
-        else
-            throw new Exception ("non può essere null");
+    public void setAbitanti(Persona7[] abitanti) {
+        this.abitanti = new Persona7[abitanti.length + 1];
+        this.abitanti[0] = sindaco;
+        for (int i = 1; i < abitanti.length; i++) {
+            this.abitanti[i] = abitanti[i - 1];
+        }
     }
-    
-    public Integer densitaPopolazione(){
-        
-        return null;
+
+    public Integer densitaPopolazione() {
+        Integer dens = 0;
+        int temp = superficie.indexOf(',');
+        String s = superficie.substring(0, temp - 1);
+
+        dens = abitanti.length / Integer.parseInt(s);
+
+        return dens;
     }
-    
-    public Integer etaMedia(){
-        Integer a =0;
-        for(int i =0; i < abitanti.length; i++){
-                a+=abitanti[i].calcolaEta();
-            }
-        a=a/abitanti.length;
-        return a;
+
+    public Integer etaMedia() throws Exception {
+        Integer eta = 0;
+
+        for (int i = 0; i < abitanti.length; i++) {
+            eta = eta + abitanti[i].calcolaEta();
+        }
+       
+        eta = eta / abitanti.length;
+
+        return eta;
     }
     
     public String info(){
         String testo;
         
-        testo="sindaco:" + sindaco + "abitanti:" + abitanti ;
+        testo = "nome: " + nome + "\n" + "superficie:" + superficie + "\n" +
+                "sindaco: " + sindaco + "abitanti: " + abitanti;
         
         return testo;
     }
     
     public Integer numeroOmonimi(){
-        return null;
-    }
-    
-    public static void main(String[] args) throws Exception {
+        Integer n = 0;
         
-        try{
-            Persona7 sindaco = new Persona7(1.4, "Marco", "22/12/2000", "Rossi", 2.1 , "ciao@afff.net", "Termo$123%aaaaa");
-            Persona7[] abitanti={sindaco,sindaco};
-            Citta c = new Citta ("Trento", "157,8km", sindaco, abitanti);
-            for(int i =0; i < abitanti.length; i++){
+        for (int i = 0; i < abitanti.length; i++) {
+            for (int j = i + 1; j < abitanti.length; j++) {
+                if (abitanti[i].getNome().equals(abitanti[j].getNome())) {
+                    n++; 
+                }
+            }
+        }
+        return n;
+    }
+
+    public static void main(String[] args) throws Exception {
+        try {
+            Persona7 sindaco = new Persona7(1.0, "Pompilio", "22/12/1950", "Rossi", 123f, "gianni.compitio@cico.com", "Termo$123%aaaaa");
+            Persona7 p1 = new Persona7(1.0, "Ghetta", "22/12/1950", "Rossi", 123f, "gianni.compitio@cico.com", "Termo$123%aaaaa");
+            Persona7 p2 = new Persona7(1.0, "Tamaontop", "22/12/1950", "Rossi", 123f, "gianni.compitio@cico.com", "Termo$123%aaaaa");
+            Persona7 p3 = new Persona7(1.0, "Tomaonline", "22/12/1950", "Rossi", 123f, "gianni.compitio@cico.com", "Termo$123%aaaaa");
+            Persona7[] abitanti = {p1, p2, p3, sindaco};
+            Citta c = new Citta("Trento", "157,9km", sindaco, abitanti);
+            for (int i = 0; i < abitanti.length; i++) {
                 System.out.println(c.getAbitanti()[i].info());
             }
-            
-        }catch(Exception ex){
-           System.out.println(ex.getMessage());
+            c.etaMedia();
+            c.info();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }
-    
-    
 }
 

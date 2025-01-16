@@ -14,7 +14,7 @@ public class Persona7 {
     private String dataDiNascita;
     private static int numeroIstanze;
     private String cognome;
-    private Double peso;
+    private Float peso;
     private String email;
     private String password; 
 
@@ -22,7 +22,7 @@ public class Persona7 {
         numeroIstanze++;
     }    
 
-    public Persona7(Double altezza, String nome, String dataDiNascita, String cognome, Double peso, String email, String password) throws Exception {
+    public Persona7(Double altezza, String nome, String dataDiNascita, String cognome, Float peso, String email, String password) throws Exception {
         setAltezza(altezza);
         setNome(nome);
         setDataDiNascita(dataDiNascita);
@@ -53,11 +53,11 @@ public class Persona7 {
             throw new Exception ("il cognome non è stato inserito correttamente");
     }
 
-    public Double getPeso() {
+    public Float getPeso() {
         return peso;
     }
 
-    public void setPeso(Double peso) throws Exception {
+    public void setPeso(Float peso) throws Exception {
         if(peso >0 && peso != null){
             this.peso = peso;
         }else{
@@ -82,8 +82,7 @@ public class Persona7 {
     }
 
     public void setPassword(String password) throws Exception {
-        Pattern pattern = Pattern.compile("(?=.*[@#$%])([a-z])(?=.*[A-Z])(?=.*\\d){8,16}");
-        if(pattern.matcher(password).matches() && password != null)
+        if(password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})"))
             this.password = password;
         else
             throw new Exception("password errata");  
@@ -112,7 +111,7 @@ public class Persona7 {
             magg = r.nextInt(2)+1;   
         }
         if(altezza < 3 && altezza >0 && altezza != null){
-            if(altezza > 1){
+            if(altezza > 0){
                 this.altezza = altezza;
             }else{
                 throw new Exception("L'altezza deve essere maggiore del valore minimo");
@@ -241,7 +240,7 @@ public class Persona7 {
         
         try{
             
-            Persona7 pe = new Persona7 (1.4, "Marco", "22/12/2000", "Rossi", 2.1 , "ciao@afff.net", "Termo$123%aaaaa");
+            Persona7 pe = new Persona7 (1.4, "Marco", "22/12/2000", "Rossi", 21f, "ciao@afff.net", "Termo$123%aaaaa");
             
         }catch(Exception ex){
            System.out.println(ex.getMessage());
