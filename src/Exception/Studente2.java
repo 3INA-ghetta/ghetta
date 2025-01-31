@@ -281,7 +281,7 @@ public class Studente2 extends PersonaA {
 
     public static void main(String[] args) throws Exception {
         try {
-            Studente2 s = new Studente2(1, true, 1.0, "Pompilio", "Matteo", 40f, "17/04/2007", "matteo.pompilio@cico.com", "Bl00dborneL0ver!");
+            Studente2 s = new Studente2(1, true, 1.0, "Pumlio", "Mereo", 40f, "17/04/2007", "betteo.dombilio@cico.com", "Bl00dborneL0ver!");
             s.aggiungiVoto(8f);
             s.aggiungiVoto(1f);
             s.aggiungiVoto(10f);
